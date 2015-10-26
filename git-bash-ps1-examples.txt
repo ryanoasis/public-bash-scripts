@@ -1,0 +1,29 @@
+
+# source
+# https://makandracards.com/makandra/1090-customize-your-bash-prompt
+
+export PS1='\h \w$(__git_ps1 "(%s)") \$ '
+=> mycomputer ~/apps/chess/tmp(master) $ _
+
+export PS1='\[\e[33m\]\h\[\e[0m\]:\W\[\e[33m\]$(__git_ps1 "(%s)")\[\e[0m\] \u\$ '
+=> mycomputer:tmp(master) tom$ _
+
+# Henning's awesome TRON prompt 2.0.2 with current Git branch and success state of the last command (the syntax coloring here does not do it justice):
+export PS1='`if [ $? = 0 ]; then echo "\[\033[01;32m\]✔"; else echo "\[\033[01;31m\]✘"; fi` \[\033[01;30m\]\h\[\033[01;34m\] \w\[\033[35m\]$(__git_ps1 " %s") \[\033[01;30m\]>\[\033[00m\] '
+=> ✔ mycomputer ~/projects/platforms master > _
+
+# Arne's epic timestamped prompt with return status indicator and status-colored (green or red, if unstaged) git branch:
+export PS1='\[\e[01;30m\]\t `if [ $? = 0 ]; then echo "\[\e[32m\]"; else echo "\[\e[31m\]✘"; fi` \[\e[00;37m\]\u\[\e[01;37m\]:`[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "\[\e[31m\]" || echo "\[\e[32m\]"`$(__git_ps1 "(%s)\[\e[00m\]")\[\e[01;34m\]\w\[\e[00m\]\$ '
+=> 03:13:37 ✔ arne:(master)~/projects/geordi$ _
+
+# Arne's danger prompt for root use. No git information and alarming red and yellow (which you can't see here):
+export PS1='\[\e[01;30m\]\t \[\e[31m\]\u\[\e[37m\]:\[\e[33m\]\w\[\e[31m\]\$\[\033[00m\] '
+=> 03:13:37 root:/tmp/foo# _
+
+# Kim's mix of those above with small changes. TRON promt with timestamp, return status indicator, hostname, git informations and working directory (but all non-bold).
+export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\] >'
+=> 03:13:37 ツ mycomputer:(master)~/code/foo >
+
+# Kim's root promt (the same as above without git and the hostname is red)
+export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;31m\]\h\[\033[00;37m\]:\[\033[00;34m\]\w\[\033[00m\] >'
+=> 03:13:37 ツ mycomputer:~/code/foo >
