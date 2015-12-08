@@ -4,7 +4,7 @@
 # @todo
 # option for all database
 # e.g.
-# mysqldump -u root --all-databases | gzip -9 > /c/Users/Ryan/Acronym/db_backups/ALL_DBS_$(date +%d-%m[%b]-%Y-%H_%M_%S).sql.gz
+# mysqldump -u root --all-databases | gzip -9 > /c/Users/Ryan/db_backups/ALL_DBS_$(date +%d-%m[%b]-%Y-%H_%M_%S).sql.gz
 
 MYSQL_DUMP="/opt/lampp/bin/mysqldump"
 
@@ -24,7 +24,7 @@ else
 	POSTFIX_NAME=""
 fi
 
-SAVE_PATH="/home/ryan/Acronym/db_backups/${DBNAME}_$(date +%d-%m[%b]-%Y-%H_%M_%S)$POSTFIX_NAME.sql.gz"
+SAVE_PATH="/home/ryan/db_backups/${DBNAME}_$(date +%d-%m[%b]-%Y-%H_%M_%S)$POSTFIX_NAME.sql.gz"
 
 echo -n "Backing up to: $SAVE_PATH"
 
