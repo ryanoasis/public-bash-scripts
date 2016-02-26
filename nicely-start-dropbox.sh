@@ -7,7 +7,12 @@
 # Description: Sync your files across computers and to the web
 # Command: dropbox start -i
 
-ionice -c 3 dropbox start -i && cpulimit -b -e dropbox -l 20
+# no icon? or missing fix:
+# http://askubuntu.com/questions/732967/dropbox-icon-is-not-working-xubuntu-14-04-lts-64
+
+DBUS_SESSION_BUS_ADDRESS="" && ionice -c 3 dropbox start -i && cpulimit -b -e dropbox -l 20
+# this is working adhoc:
+#dropbox stop && DBUS_SESSION_BUS_ADDRESS="" dropbox start
 
 exit 0
 # sources:
