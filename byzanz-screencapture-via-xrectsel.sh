@@ -28,7 +28,7 @@ ARGUMENTS=$(xrectsel "--x=%x --y=%y --width=%w --height=%h") || exit -1
 
 byzanz-record --verbose --delay=$DELAY ${ARGUMENTS} --duration=$DURATION  "$OUTDIR/screencast_$DATE.gif"
 
-thunar $OUTDIR
+xdg-open $OUTDIR
 
 
 
