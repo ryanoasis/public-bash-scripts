@@ -6,7 +6,7 @@
 # sed usage example:
 # sed -e 's/SEARCH_STRING/REPLACE_STRING/g' file > file.out
 # have to escape all / (forward slashes) because has special meaning in sed
-SEARCH_STRING="(\/\/)*console.(log|debug|info|warn)\((.*)\);?"
+SEARCH_STRING="(\/\/)*console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*)\);?"
 REPLACE_STRING="void 0"
 
 function removeLogFromFile {
