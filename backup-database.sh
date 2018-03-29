@@ -9,14 +9,14 @@
 MYSQL_DUMP="/opt/lampp/bin/mysqldump"
 
 echo "Enter Database name: "
-read DBNAME
+read -r DBNAME
 echo "Database: $DBNAME will be backed up"
 
 echo "Enter backup tag description (<ENTER> for default): "
-read POSTFIX_NAME
+read -r POSTFIX_NAME
 
-if [ $POSTFIX_NAME != "" ]; then
-	echo 'Backup tag description given: ' $POSTFIX_NAME
+if [ "$POSTFIX_NAME" != "" ]; then
+	echo 'Backup tag description given: ' "$POSTFIX_NAME"
 	POSTFIX_NAME="_"$POSTFIX_NAME
 else
 	# no arguments
