@@ -5,7 +5,7 @@
 My collection of Bash Scripts (either created by me or from other sources) that I can share publicly
 
 Scripts for:
-- Byzanz screen capturing
+- [Byzanz screen capturing](screen-capturing)
 - Database backups
 - Finding duplicate files
 - Finding files not owned by a user group
